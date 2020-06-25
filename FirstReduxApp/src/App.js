@@ -11,8 +11,8 @@ function App() {
       <div className="App">
         <header className="App-header">
           hi
-      </header>
         <ColourPicker />
+      </header>
       </div>
     </Provider>
   )
