@@ -8,7 +8,6 @@ export const ColourPicker = (props) => {
 
 
   function makeChange(e) {
-    console.log(e.target.className)
     changeColour(e.target.className)
   }
 
