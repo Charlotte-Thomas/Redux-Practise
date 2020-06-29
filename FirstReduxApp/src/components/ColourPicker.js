@@ -4,21 +4,37 @@ import { connect } from 'react-redux'
 
 import { changeColour } from '../actions/colourActions'
 
-export const ColourPicker = (props) => {
+class ColourPicker extends Component {
 
-
-  function makeChange(e) {
-    changeColour(e.target.className)
+  constructor(props) {
+    super(props)
+    this.state = {
+      colour: ''
+    }
+    this.onChange = this.onChange.bind(this)
   }
 
-  return (
-    <div>
-      <h1>colour picker</h1>
-      <button className='blue' onClick={(e) => makeChange(e)}>Blue</button>
-      <button className='pink' onClick={(e) => makeChange(e)}>Pink</button>
-      <button className='green' onClick={(e) => makeChange(e)}>Green</button>
-    </div>
-  )
+  onChange(e) {
+    const colour = {
+      colour: this.state.colour
+    }
+    this.props.changeColour(colour)
+  }
+
+  makeChange(e) {
+    this.setState({ colour: e.target.className })
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>colour picker</h1>
+        <button className='blue' onClick={(e) => this.makeChange(e)}>Blue</button>
+        <button className='pink' onClick={(e) => this.makeChange(e)}>Pink</button>
+        <button className='green' onClick={(e) => this.makeChange(e)}>Green</button>
+      </div>
+    )
+  }
 }
 
 ColourPicker.propTypes = {
