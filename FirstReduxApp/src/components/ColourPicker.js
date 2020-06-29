@@ -16,11 +16,7 @@ class ColourPicker extends Component {
   }
 
   makerequest() {
-    console.log(this.props.changeColour())
-    // const colour = {
-    //   colour: this.state.colour
-    // }
-    // this.props.changeColour(colour)
+    this.props.changeColour(this.state.colour)
   }
 
   makeChange(e) {
