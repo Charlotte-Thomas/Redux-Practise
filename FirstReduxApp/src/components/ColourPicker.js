@@ -9,16 +9,18 @@ class ColourPicker extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      colour: ''
+      colour: 'blue'
     }
-    this.onChange = this.onChange.bind(this)
+    this.makeChange = this.makeChange.bind(this)
+    this.makerequest = this.makerequest.bind(this)
   }
 
-  onChange(e) {
-    const colour = {
-      colour: this.state.colour
-    }
-    this.props.changeColour(colour)
+  makerequest() {
+    console.log(this.props.changeColour())
+    // const colour = {
+    //   colour: this.state.colour
+    // }
+    // this.props.changeColour(colour)
   }
 
   makeChange(e) {
@@ -32,6 +34,7 @@ class ColourPicker extends Component {
         <button className='blue' onClick={(e) => this.makeChange(e)}>Blue</button>
         <button className='pink' onClick={(e) => this.makeChange(e)}>Pink</button>
         <button className='green' onClick={(e) => this.makeChange(e)}>Green</button>
+        <button onClick={() => this.makerequest()}>Make req</button>
       </div>
     )
   }
@@ -41,12 +44,9 @@ ColourPicker.propTypes = {
   changeColour: PropTypes.func.isRequired
 }
 
-const mapStateToProps = (state) => ({
+// const mapStateToProps = state => ({
+//   colour: state.colour
+// })
 
-})
-
-const mapDispatchToProps = {
-
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(ColourPicker)
+// export default connect(mapStateToProps, mapDispatchToProps)(ColourPicker)
+export default connect(null, { changeColour })(ColourPicker)
