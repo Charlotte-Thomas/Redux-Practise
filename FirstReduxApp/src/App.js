@@ -20,10 +20,3 @@ function App() {
 }
 
 export default App
-
-
-// colour picker
-// changes block colour on screen
-// changes name of colour on screen describing block colour
-// component for block picker
-// component for block that changes
