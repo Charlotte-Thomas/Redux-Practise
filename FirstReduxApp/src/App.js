@@ -1,6 +1,7 @@
 import React from 'react'
 import '../src/styles/App.css'
 import ColourPicker from './components/ColourPicker'
+import ColourChange from './components/ColourChange'
 import { Provider } from 'react-redux'
 
 import store from './store'
@@ -12,6 +13,7 @@ function App() {
         <header className="App-header">
           hi
         <ColourPicker />
+        <ColourChange />
       </header>
       </div>
     </Provider>
