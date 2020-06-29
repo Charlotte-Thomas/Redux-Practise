@@ -9,7 +9,7 @@ class ColourPicker extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      colour: 'blue'
+      colour: ''
     }
     this.makeChange = this.makeChange.bind(this)
     this.makerequest = this.makerequest.bind(this)
@@ -20,6 +20,7 @@ class ColourPicker extends Component {
   }
 
   makeChange(e) {
+    console.log('current state: ', this.props.storedColour)
     this.setState({ colour: e.target.className })
   }
 
@@ -40,9 +41,8 @@ ColourPicker.propTypes = {
   changeColour: PropTypes.func.isRequired
 }
 
-// const mapStateToProps = state => ({
-//   colour: state.colour
-// })
+const mapStateToProps = state => ({
+  storedColour: state, // here state what data you want from your redux global store & it places into component props
+})
 
-// export default connect(mapStateToProps, mapDispatchToProps)(ColourPicker)
-export default connect(null, { changeColour })(ColourPicker)
+export default connect(mapStateToProps, { changeColour })(ColourPicker)
