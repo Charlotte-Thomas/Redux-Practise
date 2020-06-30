@@ -1,18 +1,17 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
 export class ColourChange extends Component {
   constructor(props) {
     super(props)
+    this.inputRef = null
     this.state = {
       colour: ''
     }
   }
 
   changeColour(col) {
-    const text = document.querySelector('.textChange')
-    text.style.color = col
+    this.inputRef.style.color = col
   }
 
   componentDidUpdate() {
@@ -22,7 +21,7 @@ export class ColourChange extends Component {
   render() {
     return (
       <div>
-        <p className='textChange'>{this.props.storedColour ? this.props.storedColour : 'no colour picked yet'}</p>
+        <p className='textChange' ref={inputRef => { this.inputRef = inputRef }}>{this.props.storedColour ? this.props.storedColour : 'no colour picked yet'}</p>
       </div>
     )
   }
