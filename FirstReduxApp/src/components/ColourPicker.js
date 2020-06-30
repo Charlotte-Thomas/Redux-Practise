@@ -20,7 +20,6 @@ class ColourPicker extends Component {
   }
 
   makeChange(e) {
-    console.log('current state: ', this.props.storedColour)
     this.setState({ colour: e.target.className })
   }
 
