@@ -10,10 +10,19 @@ export class ColourChange extends Component {
     }
   }
 
+  changeColour(col) {
+    const text = document.querySelector('.textChange')
+    text.style.color = col
+  }
+
+  componentDidUpdate() {
+    this.changeColour(this.props.storedColour)
+  }
+
   render() {
     return (
       <div>
-        <p>{this.props.storedColour ? this.props.storedColour : 'no colour picked yet'}</p>
+        <p className='textChange'>{this.props.storedColour ? this.props.storedColour : 'no colour picked yet'}</p>
       </div>
     )
   }
