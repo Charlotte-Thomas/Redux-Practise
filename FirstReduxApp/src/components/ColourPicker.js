@@ -45,4 +45,8 @@ const mapStateToProps = state => ({
   storedColour: state, // here state what data you want from your redux global store & it places into component props
 })
 
-export default connect(mapStateToProps, { changeColour })(ColourPicker)
+const mapDispatchToProps = {
+  changeColour // here state what actions you want to use in your component and it adds to props
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ColourPicker)
