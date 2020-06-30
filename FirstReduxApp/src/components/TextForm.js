@@ -1,7 +1,8 @@
 import React, { Component, useState } from 'react'
 import { connect } from 'react-redux'
+import { changeColour } from '../actions/colourActions'
 
-const TextForm = () => {
+const TextForm = (props) => {
   const [text, setText] = useState('')
 
   function updateForm(e) {
@@ -10,13 +11,14 @@ const TextForm = () => {
 
   function submitForm(e) {
     e.preventDefault()
-    // redux action goes here
+    props.changeColour(text)
+
   }
 
   return (
     <div>
       <form onSubmit={(e) => submitForm(e)}>
-        <input onChange={(e) => updateForm(e)} placeholder='Enter a message' />
+        <input onChange={(e) => updateForm(e)} placeholder='Enter a colour' />
       </form>
     </div>
   )
@@ -27,7 +29,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = {
-
+  changeColour
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(TextForm)
