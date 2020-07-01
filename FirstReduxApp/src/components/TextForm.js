@@ -6,12 +6,12 @@ const TextForm = (props) => {
   const [text, setText] = useState('')
 
   function updateForm(e, num) {
-    num == 1 ? setText(e.target.value) : console.log('')
+    num === 1 ? setText(e.target.value) : console.log('')
   }
 
   function submitForm(e, num) {
     e.preventDefault()
-    num == 1 ? props.changeColour(text) : console.log('')
+    num === 1 ? props.changeColour(text) : console.log('')
 
   }
 

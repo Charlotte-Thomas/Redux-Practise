@@ -1,23 +1,28 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 
-export const Messages = () => {
+const Messages = () => {
+
+  const [data, setData] = useState([])
+
+  useEffect(() => {
+    //retrieve data
+  }, [])
+
   return (
     <div>
-      <div>
-        hi
-      </div>
+      {data && data.map((msg, i) => {
+        return <p key={i}>{msg}</p>
+      })}
     </div>
   )
 }
 
 Messages.propTypes = {
-  prop: PropTypes
 }
 
 const mapStateToProps = (state) => ({
-  
+
 })
 
 
