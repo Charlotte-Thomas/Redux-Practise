@@ -5,11 +5,11 @@ import { changeColour } from '../actions/colourActions'
 const TextForm = (props) => {
   const [text, setText] = useState('')
 
-  function updateForm(e) {
-    setText(e.target.value)
+  function updateForm(e, num) {
+    num == 1 ? setText(e.target.value) : console.log('')
   }
 
-  function submitForm(e) {
+  function submitForm(e, num) {
     e.preventDefault()
     props.changeColour(text)
 
@@ -17,8 +17,11 @@ const TextForm = (props) => {
 
   return (
     <div>
-      <form onSubmit={(e) => submitForm(e)}>
-        <input onChange={(e) => updateForm(e)} placeholder='Enter a colour' />
+      <form onSubmit={(e) => submitForm(e, 1)}>
+        <input onChange={(e) => updateForm(e, 1)} placeholder='Enter a colour' />
+      </form>
+      <form onSubmit={(e) => submitForm(e, 2)}>
+        <input onChange={(e) => updateForm(e, 2)} placeholder='Enter a message' />
       </form>
     </div>
   )
