@@ -11,7 +11,7 @@ const TextForm = (props) => {
 
   function submitForm(e, num) {
     e.preventDefault()
-    props.changeColour(text)
+    num == 1 ? props.changeColour(text) : console.log('')
 
   }
 
