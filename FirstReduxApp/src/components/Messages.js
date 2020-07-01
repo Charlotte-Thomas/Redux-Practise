@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 
-const Messages = () => {
+const Messages = (props) => {
 
   const [data, setData] = useState([])
 
   useEffect(() => {
-    //retrieve data
-  }, [])
+    setData(props.msgs.messages)
+  }, [props.msgs])
 
   return (
     <div>
@@ -22,7 +22,7 @@ Messages.propTypes = {
 }
 
 const mapStateToProps = (state) => ({
-
+  msgs: state.messages
 })
 
 
